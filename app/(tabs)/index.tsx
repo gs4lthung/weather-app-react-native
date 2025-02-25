@@ -13,7 +13,7 @@ import {
   TextInput,
 } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-
+import { API_URL, API_KEY } from "@env";
 export default function HomeScreen() {
   const router = useRouter();
 
@@ -41,7 +41,7 @@ export default function HomeScreen() {
   // Fetch weather data for the given city.
   const fetchWeather = (city: string) => {
     fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=bb07795b790231337faf8465e030aa0d`
+      `${API_URL}?q=${city}&appid=${API_KEY}`
     )
       .then((response) => response.json())
       .then((data) => {
