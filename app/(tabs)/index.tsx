@@ -40,9 +40,8 @@ export default function HomeScreen() {
 
   // Fetch weather data for the given city.
   const fetchWeather = (city: string) => {
-    fetch(
-      `${API_URL}?q=${city}&appid=${API_KEY}`
-    )
+    console.log(API_URL)
+    fetch(`${API_URL}/weather?q=${city}&appid=${API_KEY}`)
       .then((response) => response.json())
       .then((data) => {
         setWeather(data);
@@ -115,7 +114,7 @@ export default function HomeScreen() {
     if (weather) {
       router.push({
         pathname: "/details",
-        params: { weather: JSON.stringify(weather) },
+        params: { city: city },
       });
     }
   };
